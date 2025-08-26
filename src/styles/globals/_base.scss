@@ -1,0 +1,455 @@
+/* Document
+========================================================================== */
+
+html {
+    font-size: 100%;
+    line-height: 1.15;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Global Box Sizing
+========================================================================== */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Sections
+========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 320px;
+    line-height: 1.5;
+    font-family: "Poppins", system-ui, -apple-system, Avenir, Helvetica, Arial,
+        sans-serif;
+    font-size: var(--fs-1);
+    font-weight: 400;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+footer,
+hgroup,
+menu,
+nav,
+section,
+main {
+    display: block;
+}
+
+summary {
+    display: list-item;
+}
+
+template {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+/* Typography
+========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+dl,
+dd,
+figure,
+blockquote,
+button,
+input,
+textarea,
+select {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--color-heading-dark);
+    // text-wrap: balance;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Heading", system-ui, sans-serif;
+    overflow-wrap: break-word;
+}
+
+h1 {
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    line-height: 1em;
+}
+
+h2 {
+    font-size: var(--fs-7);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: var(--fs-6);
+}
+
+h4 {
+    font-size: var(--fs-5);
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Lists
+========================================================================== */
+
+ul[class],
+ol[class] {
+    padding: 0;
+    list-style: none;
+}
+
+/* Links
+========================================================================== */
+
+a {
+    background-color: transparent; /* Good reset for backgrounds */
+}
+
+a[class] {
+    text-decoration: none;
+}
+
+a:not([class]) {
+    color: currentColor;
+    text-decoration-skip-ink: auto;
+}
+
+/* Media
+========================================================================== */
+
+img,
+picture,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-style: none;
+    vertical-align: middle;
+}
+
+svg {
+    height: auto;
+}
+/* Forms
+========================================================================== */
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+fieldset {
+    padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+}
+
+textarea {
+    min-height: 6em;
+    resize: vertical;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type="search"] {
+    -webkit-appearance: none; /* Use 'none' to reset */
+    appearance: none; /* Use 'none' to reset */
+    outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; /* This one usually benefits from keeping native appearance */
+    font: inherit;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+/* Dividers
+========================================================================== */
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+/* Scroll Behavior
+========================================================================== */
+
+:target {
+    scroll-margin-top: 2rem;
+}
+
+/* Website specific style
+========================================================================== */
+
+.container {
+    display: flex;
+    flex-flow: column;
+    max-width: 1200px;
+    padding-inline: var(--space-sm);
+    width: 100%;
+    margin-inline: auto;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 20px 25px;
+    background-color: var(--color-primary);
+    color: var(--color-heading-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1em;
+    text-transform: capitalize;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    gap: 5px;
+    svg {
+        width: 24px;
+        vertical-align: middle;
+    }
+}
+
+.colored-text {
+    color: var(--color-primary);
+}
+
+.intro {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    overflow: hidden;
+    transition: 1s;
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 50px;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+
+            &__wrapper {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                .logo__content {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: clamp(0.875rem, 0.667rem + 0.833vw, 1rem);
+                    font-weight: 600;
+                    line-height: 100%;
+                    gap: 10px;
+                    color: var(--color-heading-dark);
+                    .logo__icon {
+                        width: clamp(1.5rem, 0.667rem + 3.333vw, 2rem);
+                        fill: var(--color-primary);
+                        opacity: 0;
+                        transform: scale(5);
+                        will-change: opacity transform;
+                    }
+                }
+                .logo__border {
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+            &__text {
+                opacity: 0;
+                div {
+                    opacity: 0;
+                    transform: translateX(20px);
+                    will-change: opacity transform;
+                }
+            }
+            &__border {
+                stroke-dasharray: 320%;
+                stroke-dashoffset: 320%;
+            }
+        }
+    }
+}
+
+.label {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.875rem;
+    color: var(--color-heading-dark);
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1em;
+    background-color: var(--color-primary);
+    padding: 6px 25px;
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+}
+
+@media (min-width: 768px) {
+    .label {
+        font-size: 0.93rem;
+    }
+}
+//========== Css preset for gsap animation =========//

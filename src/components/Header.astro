@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets'
+import Logo from '../assets/images/logo.png'
+---
+<header id="header" class="header">
+    <div class="header__container container">
+        <nav class="header__nav" aria-label="Main navigation">
+            <a href="/" class="header__logo" aria-label="Home">
+                <Image src={Logo} alt="Revamp" width="100" class="logo" />
+            </a>
+            <ul class="header__menu" id="main-navigation">
+                <li class="header__menu-item">
+                    <a href="#about" class="header__menu-link">About</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#service" class="header__menu-link">Services</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#team" class="header__menu-link">Team</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#testimonial" class="header__menu-link"
+                        >Testimonial</a
+                    >
+                </li>
+                <li class="header__menu-item">
+                    <a href="#pricing" class="header__menu-link"
+                        >Pricing</a
+                    >
+                </li>
+                <li class="header__menu-item">
+                    <a href="#contact" class="header__menu-link">FAQ's</a>
+                </li>
+            </ul>
+
+            <button
+                class="header__menu-toggler"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<style is:global type="scss">
+      @use "../styles/utils" as *; 
+    $line-thickness: 2px;
+
+</style>

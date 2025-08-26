@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="rating">
+            <div class="rating__icon">
+                { Array.from({ length: 5 }).map((_, i) => (
+                <svg class="icon" width="40" height="40">
+                    <use xlink:href="/sprite.svg#star-icon" />
+                </svg>
+                )) }
+            </div>
+        </div>
+    </body>
+</html>
