@@ -1,3 +1,7 @@
+/* ==========================================================================
+   FONTS
+   ========================================================================== */
+
 @font-face {
     font-display: swap;
     font-family: "Heading";
@@ -48,7 +52,14 @@
     src: url("/src/assets/fonts/poppins-v23-latin-800.woff2");
 }
 
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ========================================================================== */
+
 :root {
+    /* ==========================================================================
+     COLORS
+     ========================================================================== */
     --color-primary: #dafc00;
     --color-secondary: #ff9500;
     --color-heading-white: #ffffff;
@@ -72,25 +83,38 @@
     /* Border and Dividers */
     --color-border: #d1d5db;
 
-    /*========== Font size =====*/
-    /* Typography Scale - Step-Based (Tailwind Style) */
-    --fs-1: 1rem; // 16px
-    --fs-2: 1.125rem; // 18px
-    --fs-3: 1.25rem; // 20px
-    --fs-4: 1.5rem; // 24px
+    /* ==========================================================================
+     TYPOGRAPHY
+     ========================================================================== */
+    --text-xsm: 0.875rem; // 14px
+    --text-sm: 0.938rem; // 15px
+    --text-base: 1rem; // 16px
+    --text-md: 1.125rem; // 18px
+    --text-lg: 1.25rem; // 20px
+    --text-xl: 1.5rem; // 24px
 
-    --fs-5: clamp(1.5rem, 1.35rem + 0.533vw, 1.75rem); // 24–28px
-    --fs-6: clamp(1.5rem, 1.143rem + 1.143vw, 2rem); // 24–32px
-    --fs-7: clamp(2.5rem, 1.071rem + 4.571vw, 4.5rem); // 40–72px
-    --fs-8: clamp(3rem, 0.232rem + 8.857vw, 6.875rem); // 48–110px
+    --text-fluid-sm: clamp(1.5rem, 1.35rem + 0.533vw, 1.75rem); // 24–28px
+    --text-fluid-md: clamp(1.5rem, 1.143rem + 1.143vw, 2rem); // 24–32px
+    --text-fluid-lg: clamp(2.5rem, 1.071rem + 4.571vw, 4.5rem); // 40–72px
+    --text-fluid-xl: clamp(3rem, 1.353rem + 8.235vw, 6.5rem); // 48–110px
 
-    /*======= Spacing ===========*/
-    --space-3xsm: clamp(0.25rem, 0.0625rem + 0.75vw, 0.625rem); //4 - 10
-    --space-2xsm: clamp(0.5rem, 0.2813rem + 0.875vw, 0.9375rem); // 8 - 15
-    --space-xsm: clamp(0.75rem, 0.5rem + 1vw, 1.25rem); // 12 - 20
-    --space-sm: clamp(1rem, 0.5625rem + 1.75vw, 1.875rem); // 16 - 30
-    --space-md: clamp(1.5rem, 1rem + 2vw, 2.5rem); // 24 - 40
-    --space-lg: clamp(2rem, 1.125rem + 3.5vw, 3.75rem); // 32 - 60
-    --space-xl: clamp(3rem, 2rem + 4vw, 5rem); // 48 - 80
-    --space-2xl: clamp(4rem, 2.25rem + 7vw, 7.5rem); // 64 - 120
+    /* ==========================================================================
+     SPACING
+     ========================================================================== */
+    --space-3xsm: 4px;
+    --space-2xsm: 8px;
+    --space-xsm: 12px;
+    --space-sm: 16px;
+    --space-md: 20px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 36px;
+    --space-3xl: 40px;
+
+    --space-fluid-xsm: clamp(0.75rem, 0.5rem + 1vw, 1.25rem); // 12 - 20
+    --space-fluid-sm: clamp(1rem, 0.5625rem + 1.75vw, 1.875rem); // 16 - 30
+    --space-fluid-md: clamp(1.5rem, 1rem + 2vw, 2.5rem); // 24 - 40
+    --space-fluid-lg: clamp(2rem, 1.125rem + 3.5vw, 3.75rem); // 32 - 60
+    --space-fluid-xl: clamp(3rem, 2rem + 4vw, 5rem); // 48 - 80
+    --space-fluid-2xl: clamp(4rem, 2.25rem + 7vw, 7.5rem); // 64 - 120
 }

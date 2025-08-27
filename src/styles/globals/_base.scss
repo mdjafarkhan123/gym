@@ -344,7 +344,7 @@ hr {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    padding: 20px 25px;
+    padding: 18px 10px 18px 25px;
     background-color: var(--color-primary);
     color: var(--color-heading-dark);
     font-size: 1rem;
@@ -450,6 +450,9 @@ hr {
 @media (min-width: 768px) {
     .label {
         font-size: 0.93rem;
+    }
+    .btn {
+        padding: 20px 25px 20px 30px;
     }
 }
 //========== Css preset for gsap animation =========//
