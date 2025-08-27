@@ -30,12 +30,13 @@ body {
     line-height: 1.5;
     font-family: "Poppins", system-ui, -apple-system, Avenir, Helvetica, Arial,
         sans-serif;
-    font-size: var(--fs-1);
+    font-size: var(--text-base);
     font-weight: 400;
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     background-color: var(--color-background);
     color: var(--color-text-dark);
+    overflow: hidden;
 }
 
 article,
@@ -103,7 +104,6 @@ h2,
 h3,
 h4 {
     color: var(--color-heading-dark);
-    // text-wrap: balance;
     text-rendering: optimizeLegibility;
 }
 
@@ -118,27 +118,28 @@ h6 {
 }
 
 h1 {
-    font-size: var(--fs-8);
+    font-size: var(--text-fluid-xl);
     text-transform: uppercase;
+    text-wrap: nowrap;
     line-height: 1em;
 }
 
 h2 {
-    font-size: var(--fs-7);
+    font-size: var(--text-fluid-lg);
     text-transform: uppercase;
 }
 
 h3 {
-    font-size: var(--fs-6);
+    font-size: var(--text-fluid-md);
 }
 
 h4 {
-    font-size: var(--fs-5);
+    font-size: var(--text-fluid-sm);
 }
 
 pre {
     font-family: monospace, monospace;
-    font-size: 1em;
+    font-size: var(--text-base);
 }
 
 abbr[title] {
@@ -156,7 +157,7 @@ code,
 kbd,
 samp {
     font-family: monospace, monospace;
-    font-size: 1em;
+    font-size: var(--text-base);
 }
 
 small {
@@ -332,11 +333,11 @@ hr {
 .container {
     display: flex;
     flex-flow: column;
-    max-width: 1200px;
-    padding-inline: var(--space-sm);
+    max-width: 1240px;
+    padding-inline: var(--space-fluid-sm);
     width: 100%;
     margin-inline: auto;
-    gap: 20px;
+    gap: var(--space-xl);
 }
 
 .btn {
@@ -347,7 +348,7 @@ hr {
     padding: 18px 10px 18px 25px;
     background-color: var(--color-primary);
     color: var(--color-heading-dark);
-    font-size: 1rem;
+    font-size: var(--text-base);
     font-weight: 500;
     line-height: 1em;
     text-transform: capitalize;
@@ -448,8 +449,11 @@ hr {
 }
 
 @media (min-width: 768px) {
+    .container {
+        gap: var(--space-3xl);
+    }
     .label {
-        font-size: 0.93rem;
+        font-size: var(--text-sm);
     }
     .btn {
         padding: 20px 25px 20px 30px;

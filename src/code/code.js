@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let direction = 1; // 1 = forward, -1 = backward scroll
 
         const roll1 = roll(".ribbon__track .ribbon__content", {
-                duration: 10,
+                duration: 26,
             }),
             scroll = ScrollTrigger.create({
                 onUpdate(self) {
