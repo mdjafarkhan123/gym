@@ -311,6 +311,52 @@ const faqs = [
             </div>
         </div>
     </section>
+    <section id="ribbon" class="ribbon">
+        <div class="ribbon__wrapper ribbon__wrapper--first">
+            <div class="ribbon__track ribbon__track--first">
+                <div class="ribbon__content">
+                    <div class="ribbon__item">
+                        <span>Visible results</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                        <span>Healthy skin</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                        <span>Natural ingredients</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                        <span>Visible results</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                        <span>Healthy skin</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                        <span>Natural ingredients</span>
+                        <span>
+                            <svg class="icon">
+                                <use xlink:href="/sprite.svg#gemini-star"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="about" class="about">
         <div class="about__wrapper container">
             <div class="about__content">
@@ -1034,6 +1080,48 @@ const faqs = [
                     justify-content: center;
                 }
             }
+        }
+    }
+
+    .ribbon {
+        position: relative;
+        min-height: 200px;
+        &__wrapper {
+            position: absolute;
+            width: 100vw;
+            padding-block: 1em;
+            overflow: hidden;
+        }
+        &__wrapper {
+            background-color: var(--color-primary);
+            z-index: 2;
+        }
+        &__track {
+            white-space: nowrap;
+            &--first {
+                color: var(--color-heading-white);
+                z-index: 1;
+            }
+        }
+        &__content {
+            display: inline-block;
+            white-space: nowrap;
+            .ribbon__item {
+                white-space: nowrap;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: clamp(1.25rem, 0.714rem + 1.714vw, 2rem);
+            }
+            span {
+                display: inline-block;
+                padding-inline: 30px;
+            }
+        }
+        svg {
+            width: 40px;
+            height: 40px;
+            color: var(--color-secondary);
         }
     }
 
