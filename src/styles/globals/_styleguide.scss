@@ -81,7 +81,7 @@
     --color-warning: #ffc107;
 
     /* Border and Dividers */
-    --color-border: #d1d5db;
+    --color-border: #bbbbbb;
 
     /* ==========================================================================
      TYPOGRAPHY
@@ -117,4 +117,11 @@
     --space-fluid-lg: clamp(2rem, 1.125rem + 3.5vw, 3.75rem); // 32 - 60
     --space-fluid-xl: clamp(3rem, 2rem + 4vw, 5rem); // 48 - 80
     --space-fluid-2xl: clamp(4rem, 2.25rem + 7vw, 7.5rem); // 64 - 120
+
+    /* ==========================================================================
+     Animation & Timing
+     ========================================================================== */
+
+    --transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
+    --round: clamp(1.25rem, 0.625rem + 2vw, 1.875rem);
 }
