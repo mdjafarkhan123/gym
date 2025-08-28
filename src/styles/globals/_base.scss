@@ -127,6 +127,7 @@ h1 {
 h2 {
     font-size: var(--text-fluid-lg);
     text-transform: uppercase;
+    // line-height: 1em;
 }
 
 h3 {
@@ -444,6 +445,7 @@ hr {
     line-height: 1em;
     background-color: var(--color-primary);
     padding: 6px 25px;
+    margin-bottom: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: 100px;
 }

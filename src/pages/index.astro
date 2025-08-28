@@ -503,11 +503,14 @@ const faqs = [
     <section id="services" class="services">
         <div class="services__wrapper container">
             <div class="services__intro">
-                <div class="label">Services</div>
-                <h2 class="services__heading">
-                    Tailored <span class="colored-text">Programs</span>
-                    <br />for every goal
-                </h2>
+                <div class="services__intro-group">
+                    <div class="label">Services</div>
+                    <h2 class="services__heading">
+                        Services that <br />
+                        <span class="colored-text">Match</span>
+                        your goal
+                    </h2>
+                </div>
                 <p class="services__description">
                     We understand that every fitness journey is unique, and what
                     works for one person may not work for another. That’s why we
@@ -566,6 +569,39 @@ const faqs = [
                         }
                     </div>
                 </div>
+
+                <div class="services__navigator slider-navigator">
+                    <button
+                        type="button"
+                        class="services__left-button"
+                        aria-label="Previous service"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            ><path
+                                d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"
+                            ></path></svg
+                        >
+                    </button>
+                    <button
+                        type="button"
+                        class="services__right-button"
+                        aria-label="Next service"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            ><path
+                                d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
+                            ></path></svg
+                        >
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -582,11 +618,13 @@ const faqs = [
                 <div class="speciality__list">
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={certificateIcon}
-                                alt="Certified"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={certificateIcon}
+                                    alt="Certified"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -600,11 +638,13 @@ const faqs = [
                     </div>
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={equipmentIcon}
-                                alt="State of art equipment"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={equipmentIcon}
+                                    alt="State of art equipment"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -618,11 +658,13 @@ const faqs = [
                     </div>
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={planIcon}
-                                alt="State of art equipment"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={planIcon}
+                                    alt="State of art equipment"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -638,11 +680,13 @@ const faqs = [
                 <div class="speciality-list">
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={transformIcon}
-                                alt="Transformation"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={transformIcon}
+                                    alt="Transformation"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -656,11 +700,13 @@ const faqs = [
                     </div>
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={nutritionIcon}
-                                alt="Diet plan"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={nutritionIcon}
+                                    alt="Diet plan"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -1040,8 +1086,8 @@ const faqs = [
         slidesPerView: 1,
         loop: true,
         navigation: {
-            nextEl: ".right-button",
-            prevEl: ".left-button",
+            nextEl: ".services__right-button",
+            prevEl: ".services__left-button",
         },
 
         spaceBetween: 20,
@@ -1396,6 +1442,9 @@ const faqs = [
             .services__description {
                 color: var(--color-text-white);
             }
+            .label {
+                margin-bottom: var(--space-md);
+            }
         }
 
         &__list {
@@ -1460,6 +1509,40 @@ const faqs = [
                         font-weight: 500;
                     }
                 }
+            }
+        }
+        &__navigator {
+            display: none;
+        }
+    }
+
+    .speciality {
+        padding-block: var(--space-fluid-2xl);
+        &__item {
+            --size: 80px;
+            display: flex;
+            gap: var(--space-md);
+            &-icon {
+                .icon__wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: var(--size);
+                    height: var(--size);
+                    background-color: var(--color-primary);
+                    border-radius: 100px;
+                }
+                img {
+                    max-width: 40px;
+                }
+            }
+            &-content {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-xsm);
+            }
+            &-heading {
+                text-transform: capitalize;
             }
         }
     }
@@ -1569,10 +1652,50 @@ const faqs = [
         .services {
             .swiper {
                 width: 100%;
+                height: auto;
             }
+
             &__list {
                 flex-direction: row;
                 gap: 0;
+            }
+
+            &-card {
+                flex-direction: row;
+                gap: var(--space-md);
+                &__media {
+                    width: 50%;
+                    margin-bottom: 0;
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &__content {
+                    width: 50%;
+                    padding: var(--space-fluid-md) var(--space-fluid-sm);
+                }
+            }
+
+            &__navigator {
+                --size: 64px;
+                display: flex;
+                justify-content: center;
+                margin-top: var(--space-lg);
+                gap: var(--space-lg);
+                button {
+                    display: inline-block;
+                    width: var(--size);
+                    height: var(--size);
+                    line-height: 0;
+                    background-color: var(--color-primary);
+                    border-radius: 100px;
+                    svg {
+                        width: 32px;
+                        color: var(--color-heading-dark);
+                    }
+                }
             }
         }
     }
@@ -1615,6 +1738,20 @@ const faqs = [
         .about {
             &__stats {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        .services {
+            &__intro {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                &-group {
+                    width: 50%;
+                }
+            }
+            &__description {
+                width: min(489px, 50%);
             }
         }
     }
