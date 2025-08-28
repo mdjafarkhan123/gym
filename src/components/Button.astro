@@ -1,8 +1,13 @@
 ---
-const { link = "#", text, type = "primary" } = Astro.props;
+const { link = "#", text, type = "primary", className = "" } = Astro.props;
 ---
 
-<a href={link} class={`btn btn--${type}`} role="button" aria-label={text}>
+<a
+    href={link}
+    class={`btn btn--${type} ${className}`}
+    role="button"
+    aria-label={text}
+>
     <span class="btn__text">{text}</span>
     <span class="btn__icon" aria-hidden="true">
         <svg

@@ -615,7 +615,7 @@ const faqs = [
                 </h2>
             </div>
             <div class="speciality__content">
-                <div class="speciality__list">
+                <div class="speciality__list list-1">
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
                             <div class="icon__wrapper">
@@ -677,7 +677,8 @@ const faqs = [
                         </div>
                     </div>
                 </div>
-                <div class="speciality-list">
+                <div class="speciality__list
+                list-2">
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
                             <div class="icon__wrapper">
@@ -710,7 +711,7 @@ const faqs = [
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
-                                Nutritionn & wellness guidance
+                                Nutrition & guidance
                             </h4>
                             <p class="speciality__item-description">
                                 Receive expert tips on meals, recovery, and
@@ -720,11 +721,13 @@ const faqs = [
                     </div>
                     <div class="speciality__item">
                         <div class="speciality__item-icon">
-                            <Image
-                                src={locationIcon}
-                                alt="Convenient location and hour"
-                                aria-hidden="true"
-                            />
+                            <div class="icon__wrapper">
+                                <Image
+                                    src={locationIcon}
+                                    alt="Convenient location and hour"
+                                    aria-hidden="true"
+                                />
+                            </div>
                         </div>
                         <div class="speciality__item-content">
                             <h4 class="speciality__item-heading">
@@ -738,13 +741,17 @@ const faqs = [
                     </div>
                 </div>
                 <div class="speciality__media">
-                    <Image
-                        src={specialityImg}
-                        alt="Muscle man"
-                        class="speciality__image"
-                    />
+                    <div class="icon__wrapper">
+                        <Image
+                            src={specialityImg}
+                            alt="Muscle man"
+                            class="speciality__image"
+                        />
+                    </div>
                 </div>
-                <Button text="start your free trial" link="#" />
+                <div class="speciality__cta">
+                    <Button text="start your free trial" link="#" />
+                </div>
             </div>
         </div>
     </section>
@@ -1518,8 +1525,31 @@ const faqs = [
 
     .speciality {
         padding-block: var(--space-fluid-2xl);
+        &__content {
+            display: flex;
+            flex-flow: row wrap;
+            gap: var(--space-lg);
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        &__media {
+            order: 1;
+        }
+        .list-1 {
+            order: 2;
+        }
+        .list-2 {
+            order: 3;
+        }
+        &__cta {
+            order: 4;
+        }
         &__item {
-            --size: 80px;
+            --size: 64px;
             display: flex;
             gap: var(--space-md);
             &-icon {
@@ -1533,7 +1563,7 @@ const faqs = [
                     border-radius: 100px;
                 }
                 img {
-                    max-width: 40px;
+                    max-width: calc(var(--size) / 2);
                 }
             }
             &-content {
@@ -1698,6 +1728,26 @@ const faqs = [
                 }
             }
         }
+
+        .speciality {
+            &__intro {
+                text-align: center;
+            }
+            &__media {
+                width: 100%;
+                text-align: center;
+            }
+            &__cta {
+                width: 100%;
+                text-align: center;
+            }
+            .list-1 {
+                width: calc(50% - var(--space-lg) / 2);
+            }
+            .list-2 {
+                width: calc(50% - var(--space-lg) / 2);
+            }
+        }
     }
     @include respond-to("laptop") {
         .hero {
@@ -1752,6 +1802,39 @@ const faqs = [
             }
             &__description {
                 width: min(489px, 50%);
+            }
+        }
+
+        .speciality {
+            &__content {
+                align-items: center;
+            }
+            &__list {
+                justify-content: space-between;
+                align-items: stretch;
+                gap: var(--space-2xl);
+            }
+            .list-1 {
+                width: calc(33% - var(--space-lg) / 2);
+                order: 1;
+                .speciality__item {
+                    flex-direction: row-reverse;
+                    text-align: right;
+                }
+            }
+            .list-2 {
+                width: calc(33% - var(--space-lg) / 2);
+                order: 3;
+            }
+            &__media {
+                width: calc(33% - var(--space-lg));
+                order: 2;
+            }
+            &__cta {
+                order: 4;
+            }
+            &__item {
+                --size: 80px;
             }
         }
     }
