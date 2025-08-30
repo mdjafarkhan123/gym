@@ -1152,6 +1152,7 @@ const faqs = [
     .hero {
         padding-top: calc(var(--space-xl) + 60px);
         background-color: var(--color-banner);
+        overflow: hidden;
         &__wrapper {
             min-height: 84vh;
         }
@@ -1284,9 +1285,28 @@ const faqs = [
             }
         }
         &__media {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: flex-end;
+            img {
+                z-index: 2;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 10%;
+                left: clamp(0rem, -8.037rem + 32.149vw, 11.875rem);
+                max-width: 550px;
+                width: 100%;
+                border-radius: 619px;
+                background: #deff00;
+                filter: blur(100px);
+                aspect-ratio: 361/380;
+                z-index: inherit;
+                animation: pulse 4s ease-in-out infinite;
+            }
         }
     }
 
@@ -2088,6 +2108,12 @@ const faqs = [
             }
             &__media {
                 width: 45%;
+                &::after {
+                    max-width: 579px;
+                    aspect-ratio: 579/619;
+                    left: 0px;
+                    top: clamp(13.125rem, 33.99rem + -33.654vw, 8.75rem);
+                }
             }
         }
 
@@ -2219,6 +2245,20 @@ const faqs = [
                 height: 100%;
                 justify-content: space-between;
             }
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.8) rotate(0deg);
+        }
+        50% {
+            transform: scale(1.05) rotate(180deg);
+
+            /* Slight grow */
+        }
+        100% {
+            transform: scale(0.8) rotate(360deg);
         }
     }
 </style>

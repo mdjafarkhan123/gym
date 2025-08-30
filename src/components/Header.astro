@@ -1,9 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import Logo from '../assets/images/logo.png'
+import { Image } from "astro:assets";
+import Logo from "../assets/images/logo.png";
+import Button from "./Button.astro";
 ---
+
 <header id="header" class="header">
-    <div class="header__container container">
+    <div class="header__wrapper container">
         <nav class="header__nav" aria-label="Main navigation">
             <a href="/" class="header__logo" aria-label="Home">
                 <Image src={Logo} alt="Revamp" width="100" class="logo" />
@@ -24,14 +26,18 @@ import Logo from '../assets/images/logo.png'
                     >
                 </li>
                 <li class="header__menu-item">
-                    <a href="#pricing" class="header__menu-link"
-                        >Pricing</a
-                    >
+                    <a href="#pricing" class="header__menu-link">Pricing</a>
                 </li>
                 <li class="header__menu-item">
                     <a href="#contact" class="header__menu-link">FAQ's</a>
                 </li>
             </ul>
+            <Button
+                type="primary"
+                link="#"
+                text="start free trial"
+                className="header__cta"
+            />
 
             <button
                 class="header__menu-toggler"
@@ -48,7 +54,6 @@ import Logo from '../assets/images/logo.png'
 </header>
 
 <style is:global type="scss">
-      @use "../styles/utils" as *; 
+    @use "../styles/utils" as *;
     $line-thickness: 2px;
-
 </style>
