@@ -153,7 +153,7 @@ const pricing = [
     },
     {
         title: "Elite plan",
-        tagline: "For serious athletes who wants full transformation",
+        tagline: "For serious athletes",
         value: "$99",
         facilities: [
             "All pro plan benifits",
@@ -997,7 +997,7 @@ const faqs = [
                             <p class="pricing-item__price">
                                 <strong>{item.value}</strong> / per month
                             </p>
-                            <div class="divid" />
+                            <div class="divider" />
                             <ul>
                                 {item.facilities.map((point) => (
                                     <li class="pricing-item__keypoint">
@@ -1033,7 +1033,7 @@ const faqs = [
                 <h2 class="faq__heading">
                     We have collected the most asked questions
                 </h2>
-                <div class="divid"></div>
+                <div class="divider"></div>
                 <p class="faq__text">Do you have any questions?</p>
                 <Button text="contact us" link="#" type="secondary" />
             </div>
@@ -1041,11 +1041,13 @@ const faqs = [
                 <div class="faq__list">
                     {
                         faqs.map((faq, index) => (
-                            <div class="accordion-item">
+                            <div
+                                class={`accordion-item ${index == 0 ? "active" : ""}`}
+                            >
                                 <button
                                     id={`accordion-button-${index}`}
                                     class="accordion-item__button"
-                                    aria-expanded="false"
+                                    aria-expanded={index == 0 ? true : false}
                                     aria-controls={`accordion-item__content-${index}`}
                                 >
                                     <>
@@ -1064,10 +1066,7 @@ const faqs = [
                                                 xmlns="http://www.w3.org/2000/svg"
                                             >
                                                 <g clip-path="url(#clip0_1621_287)">
-                                                    <path
-                                                        d="M16.0293 16.0001L16.0293 4.97925L18.0293 4.97925L18.0293 16L29.0501 16.0001L29.0501 18.0001L18.0293 18.0001L18.0293 29.0209L16.0293 29.0209L16.0293 18.0001L5.00845 18.0001L5.00852 16L16.0293 16.0001Z"
-                                                        fill="#C79855"
-                                                    />
+                                                    <path d="M16.0293 16.0001L16.0293 4.97925L18.0293 4.97925L18.0293 16L29.0501 16.0001L29.0501 18.0001L18.0293 18.0001L18.0293 29.0209L16.0293 29.0209L16.0293 18.0001L5.00845 18.0001L5.00852 16L16.0293 16.0001Z" />
                                                 </g>
                                                 <defs>
                                                     <clipPath id="clip0_1621_287">
@@ -1646,8 +1645,10 @@ const faqs = [
             &-text {
                 color: var(--color-text-white);
             }
+            &-icon {
+                color: var(--color-primary);
+            }
         }
-
         &-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1666,7 +1667,6 @@ const faqs = [
                 border-radius: var(--round);
                 padding: var(--space-xsm);
                 margin-top: calc(-1 * var(--space-3xl));
-
                 z-index: 1;
                 .team-item__name {
                     margin-bottom: var(--space-3xsm);
@@ -1784,30 +1784,97 @@ const faqs = [
 
     .pricing {
         background-color: var(--color-banner);
+        background: linear-gradient(
+            124deg,
+            #143b00 1.65%,
+            #556e00 91.57%,
+            #dafc00 179.77%
+        );
         padding-block: var(--space-fluid-2xl);
         &__heading {
             color: var(--color-heading-white);
         }
         &__list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: var(--space-md);
         }
         &-item {
+            display: flex;
+            flex-direction: column;
             background-color: var(--color-white);
             padding: var(--space-fluid-md) var(--space-fluid-sm);
             border-radius: var(--round);
+            gap: var(--space-sm);
             &--1 {
                 background-color: var(--color-primary);
+            }
+            &__heading {
+                text-transform: capitalize;
+                margin-bottom: -10px;
+            }
+            .divider {
+                width: 100%;
+                height: 1px;
+                background-color: var(--color-border);
+            }
+
+            &__price {
+                strong {
+                    font-size: var(--text-fluid-lg);
+                    color: var(--color-heading-dark);
+                }
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                padding: 0;
+                gap: var(--space-xsm);
+                li {
+                    display: flex;
+                    align-items: flex-start;
+                    font-size: var(--text-sm);
+                    color: var(--color-heading-dark);
+                    gap: var(--space-2xsm);
+                    .icon {
+                        line-height: 0;
+                        svg {
+                            width: 24px;
+                            color: var(--color-banner);
+                        }
+                    }
+                }
             }
         }
     }
 
     .faq {
-        padding-top: var(--space-xl);
-        padding-bottom: var(--space-2xl);
+        padding-block: var(--space-fluid-2xl);
         &__wrapper {
             gap: var(--space-lg);
+        }
+
+        &__intro {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            border-radius: var(--round);
+            background: var(--color-primary);
+            padding: var(--space-fluid-lg) var(--space-fluid-sm);
+            .label {
+                margin-bottom: 0;
+            }
+            .divider {
+                width: 100%;
+                height: 1px;
+                background-color: var(--color-border);
+            }
+        }
+
+        &__heading {
+            text-transform: capitalize;
         }
         &__list-wrapper {
             display: flex;
@@ -1821,9 +1888,24 @@ const faqs = [
             .accordion-item {
                 display: flex;
                 flex-flow: column;
-                background-color: var(--color-primary);
+                background-color: var(--color-white);
                 padding: 24px;
-                border-radius: var(--space-3xsm);
+                border: 1px solid var(--color-banner);
+                border-radius: var(--round);
+                &.active {
+                    background-color: var(--color-banner);
+                    .accordion-item__title {
+                        font-size: 1.125rem;
+                        font-weight: 500;
+                        color: var(--color-heading-white);
+                    }
+                    .accordion-item__icon {
+                        svg {
+                            width: 24px;
+                            fill: var(--color-primary);
+                        }
+                    }
+                }
 
                 &__button {
                     display: flex;
@@ -1837,12 +1919,12 @@ const faqs = [
                 &__title {
                     font-size: 1.125rem;
                     font-weight: 500;
-                    color: var(--color-heading-white);
+                    color: var(--color-heading-dark);
                 }
                 &__icon {
                     svg {
                         width: 24px;
-                        fill: var(--color-white);
+                        fill: var(--color-banner);
                     }
                 }
                 &__button[aria-expanded="false"] {
@@ -1974,6 +2056,14 @@ const faqs = [
                 width: calc(50% - var(--space-lg) / 2);
             }
         }
+
+        .pricing {
+            background: linear-gradient(
+                306deg,
+                #dafc00 -106.78%,
+                #143b00 64.54%
+            );
+        }
     }
     @include respond-to("laptop") {
         .hero {
@@ -2103,6 +2193,32 @@ const faqs = [
         }
 
         .pricing {
+            &__content {
+                text-align: center;
+            }
+            &__list {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+
+            &-item {
+                padding: var(--space-fluid-md) var(--space-md);
+            }
+        }
+
+        .faq {
+            &__wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+            }
+            &__intro {
+                max-width: 400px;
+                width: 100%;
+            }
+            &__list {
+                height: 100%;
+                justify-content: space-between;
+            }
         }
     }
 </style>

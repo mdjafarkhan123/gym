@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".accordion-item button");
     const lenis = new Lenis({
         wheelMultiplier: 2,
         smoothWheel: true,
@@ -122,12 +121,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function faq() {
+        const items = document.querySelectorAll(".accordion-item button");
         function toggleAction(e) {
+            const mainElem = e.target.closest(".accordion-item");
             const state = this.getAttribute("aria-expanded");
             if (state == "false") {
                 this.setAttribute("aria-expanded", "true");
+                mainElem.classList.add("active");
             } else {
                 this.setAttribute("aria-expanded", "false");
+                mainElem.classList.remove("active");
             }
         }
 

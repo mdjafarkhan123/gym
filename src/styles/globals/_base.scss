@@ -360,10 +360,16 @@ hr {
     &--primary {
         background-color: var(--color-primary);
         color: var(--color-heading-dark);
+        svg {
+            fill: var(--color-banner);
+        }
     }
     &--secondary {
         background-color: var(--color-banner);
         color: var(--color-heading-white);
+        svg {
+            fill: var(--color-primary);
+        }
     }
     svg {
         width: 24px;
@@ -454,6 +460,10 @@ hr {
     margin-bottom: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: 100px;
+}
+
+.accordion-item.active {
+    background-color: red;
 }
 
 @media (min-width: 768px) {
