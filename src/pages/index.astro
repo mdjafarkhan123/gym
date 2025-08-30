@@ -981,7 +981,7 @@ const faqs = [
         <div class="pricing__wrapper container">
             <div class="pricing__content">
                 <div class="label">pricing</div>
-                <h2 class="pricing">
+                <h2 class="pricing__heading">
                     choose <span class="colored-text">the best</span>
                     <br /> pricing for you
                 </h2>
@@ -1015,7 +1015,11 @@ const faqs = [
                                     </li>
                                 ))}
                             </ul>
-                            <Button text="select plan" link="#" />
+                            {index == 1 ? (
+                                <Button type="secondary" text="select plan" />
+                            ) : (
+                                <Button type="primary" text="select plan" />
+                            )}
                         </article>
                     ))
                 }
@@ -1778,6 +1782,27 @@ const faqs = [
         }
     }
 
+    .pricing {
+        background-color: var(--color-banner);
+        padding-block: var(--space-fluid-2xl);
+        &__heading {
+            color: var(--color-heading-white);
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--space-md);
+        }
+        &-item {
+            background-color: var(--color-white);
+            padding: var(--space-fluid-md) var(--space-fluid-sm);
+            border-radius: var(--round);
+            &--1 {
+                background-color: var(--color-primary);
+            }
+        }
+    }
+
     .faq {
         padding-top: var(--space-xl);
         padding-bottom: var(--space-2xl);
@@ -2075,6 +2100,9 @@ const faqs = [
                     display: none;
                 }
             }
+        }
+
+        .pricing {
         }
     }
 </style>
