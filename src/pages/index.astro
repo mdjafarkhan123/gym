@@ -1431,7 +1431,9 @@ const faqs = [
             justify-content: center;
             align-items: flex-end;
             img {
+                position: relative;
                 z-index: 2;
+                animation: floating 4s ease-in-out infinite alternate;
             }
             &::after {
                 content: "";
@@ -1446,7 +1448,7 @@ const faqs = [
                 filter: blur(100px);
                 aspect-ratio: 361/380;
                 z-index: inherit;
-                animation: pulse 3s ease-in-out infinite;
+                animation: pulse 4s ease-in-out infinite alternate;
             }
         }
     }
@@ -2419,15 +2421,15 @@ const faqs = [
 
     @keyframes pulse {
         0% {
-            transform: scale(0.8) rotate(0deg);
+            transform: scale(1.05) rotate(0deg);
         }
         50% {
-            transform: scale(1.05) rotate(180deg);
+            transform: scale(0.8) rotate(180deg);
 
             /* Slight grow */
         }
         100% {
-            transform: scale(0.8) rotate(360deg);
+            transform: scale(1.05) rotate(360deg);
         }
     }
 
@@ -2449,6 +2451,18 @@ const faqs = [
         }
         100% {
             background-position: center 50%;
+        }
+    }
+
+    @keyframes floating {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(2.5%);
+        }
+        100% {
+            transform: translateY(0);
         }
     }
 </style>
