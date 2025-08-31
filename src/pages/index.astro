@@ -622,33 +622,39 @@ const faqs = [
                 <div class="services__navigator slider-navigator">
                     <button
                         type="button"
-                        class="services__left-button"
+                        class="services__left-button btn btn--primary"
                         aria-label="Previous service"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            ><path
-                                d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"
-                            ></path></svg
-                        >
+                        <span class="btn__icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                ><path
+                                    d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"
+                                ></path></svg
+                            >
+                        </span>
+                        <span class="btn__bg"></span>
                     </button>
                     <button
                         type="button"
-                        class="services__right-button"
+                        class="services__right-button btn btn--primary"
                         aria-label="Next service"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            ><path
-                                d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
-                            ></path></svg
-                        >
+                        <span class="btn__icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                ><path
+                                    d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
+                                ></path></svg
+                            >
+                        </span>
+                        <span class="btn__bg"></span>
                     </button>
                 </div>
             </div>
@@ -915,33 +921,39 @@ const faqs = [
                 <div class="testimonials__navigator">
                     <button
                         type="button"
-                        class="testimonials__left-button"
+                        class="testimonials__left-button btn btn--primary"
                         aria-label="Previous testimonial"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            ><path
-                                d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"
-                            ></path></svg
-                        >
+                        <span class="btn__icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                ><path
+                                    d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"
+                                ></path></svg
+                            >
+                        </span>
+                        <span class="btn__bg"></span>
                     </button>
                     <button
                         type="button"
-                        class="testimonials__right-button"
+                        class="testimonials__right-button btn btn--primary"
                         aria-label="Next testimonial"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            ><path
-                                d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
-                            ></path></svg
-                        >
+                        <span class="btn__icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                ><path
+                                    d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"
+                                ></path></svg
+                            >
+                        </span>
+                        <span class="btn__bg"></span>
                     </button>
                 </div>
             </div>
@@ -1673,6 +1685,10 @@ const faqs = [
                 padding-top: 60px;
                 border-radius: var(--round);
                 gap: var(--space-md);
+
+                &:hover .services-card__icon {
+                    transform: scaleX(-1);
+                }
             }
 
             &__title {
@@ -1687,6 +1703,7 @@ const faqs = [
                 height: 64px;
                 background-color: var(--color-primary);
                 border-radius: 100px;
+                transition: var(--transition);
                 img {
                     width: 32px;
                 }
@@ -1924,12 +1941,18 @@ const faqs = [
             justify-content: center;
             gap: var(--space-lg);
             button {
-                display: inline-block;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
                 width: var(--size);
                 height: var(--size);
                 line-height: 0;
                 background-color: var(--color-primary);
                 border-radius: 100px;
+                &__icon {
+                    display: inline-block;
+                    line-height: 0;
+                }
                 svg {
                     width: 32px;
                     color: var(--color-heading-dark);
@@ -2179,7 +2202,7 @@ const faqs = [
                 margin-top: var(--space-lg);
                 gap: var(--space-lg);
                 button {
-                    display: inline-block;
+                    display: inline-flex;
                     width: var(--size);
                     height: var(--size);
                     line-height: 0;
