@@ -1763,7 +1763,11 @@ const faqs = [
             --size: 64px;
             display: flex;
             gap: var(--space-md);
+            &:hover .speciality__item-icon {
+                transform: scaleX(-1);
+            }
             &-icon {
+                transition: var(--transition);
                 .icon__wrapper {
                     display: flex;
                     justify-content: center;
