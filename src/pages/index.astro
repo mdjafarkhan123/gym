@@ -1446,7 +1446,7 @@ const faqs = [
                 filter: blur(100px);
                 aspect-ratio: 361/380;
                 z-index: inherit;
-                animation: pulse 4s ease-in-out infinite;
+                animation: pulse 3s ease-in-out infinite;
             }
         }
     }
@@ -1573,6 +1573,7 @@ const faqs = [
                     no-repeat lightgray;
 
             border-radius: 20px;
+            animation: floatBg 3s ease-in-out infinite alternate;
 
             .video-player {
                 display: inline-flex;
@@ -2436,6 +2437,18 @@ const faqs = [
         }
         100% {
             background-position: 200% 0;
+        }
+    }
+
+    @keyframes floatBg {
+        0% {
+            background-position: center 50%;
+        }
+        50% {
+            background-position: center calc(50% - 20%);
+        }
+        100% {
+            background-position: center 50%;
         }
     }
 </style>
