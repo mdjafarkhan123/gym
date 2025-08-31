@@ -7,8 +7,6 @@ const { link = "#", text, type = "primary", className = "" } = Astro.props;
     class={`btn btn--${type} ${className} magnetic-button`}
     role="button"
     aria-label={text}
-    data-strength="1.5"
-    data-strength-text=".7"
 >
     <span class="btn__text text">{text}</span>
     <span class="btn__icon" aria-hidden="true">

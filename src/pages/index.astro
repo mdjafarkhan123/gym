@@ -282,6 +282,7 @@ const faqs = [
                                 <circle cx="26" cy="26" r="26" fill="white"
                                 ></circle>
                                 <path
+                                    id="hero__video-triangle"
                                     d="M38 26L20 15.6077V36.3923L38 26Z"
                                     fill="#143B00"></path>
                             </svg>
@@ -478,14 +479,17 @@ const faqs = [
             <div class="about__media">
                 <button
                     id="video-popup-btn"
-                    class="video-player video-btn"
+                    class="video-player video-btn btn btn--primary"
                     type="button"
                     aria-label="Play video"
                     aria-controls="video-player-id"
                     aria-expanded="false"
                 >
-                    <span class="video-player__text">Play video</span>
-                    <span class="video-player__icon" aria-hidden="true">
+                    <span class="video-player__text btn__text">Play video</span>
+                    <span
+                        class="video-player__icon btn__icon"
+                        aria-hidden="true"
+                    >
                         <svg
                             width="24"
                             height="24"
@@ -499,10 +503,13 @@ const faqs = [
                                 r="24.5"
                                 class="video-player__circle"></circle>
                             <path
+                                id="video-player__inner-icon"
                                 d="M38.8845 25.0769L19.0961 38.1339L19.0961 12.0199L38.8845 25.0769Z"
                                 class="video-player__triangle"></path>
                         </svg>
                     </span>
+
+                    <span class="btn__bg"></span>
                 </button>
             </div>
             <div class="about__stats">
@@ -1310,6 +1317,13 @@ const faqs = [
                     width: 60px;
                     fill: white;
                     color: white;
+                    #hero__video-triangle {
+                        transition: var(--transition);
+                        transform-origin: center center;
+                    }
+                }
+                &:hover #hero__video-triangle {
+                    transform: scale(1.4) !important;
                 }
             }
         }
@@ -1562,9 +1576,16 @@ const faqs = [
                 border-radius: 100vmax;
                 gap: 10px;
                 padding: 10px 10px 10px 30px;
+
+                &:hover #video-player__inner-icon {
+                    fill: var(--color-banner);
+                }
                 svg {
                     fill: var(--color-primary);
                     width: 40px;
+                    #video-player__inner-icon {
+                        transition: var(--transition);
+                    }
                 }
                 &__triangle {
                     fill: var(--color-white);

@@ -6,17 +6,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
-    function smoothScroll() {
-        const lenis = new Lenis({
-            wheelMultiplier: 2,
-            smoothWheel: true,
-        });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+    const lenis = new Lenis({
+        wheelMultiplier: 2,
+        smoothWheel: true,
+    });
+    function raf(time) {
+        lenis.raf(time);
         requestAnimationFrame(raf);
     }
+    requestAnimationFrame(raf);
+
     function mobileMenu() {
         const breakpoint = 992;
         if (window.innerWidth >= breakpoint) {
@@ -368,7 +367,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     buttonEffect();
-    smoothScroll();
     rollingText();
     faq();
     mobileMenu();
