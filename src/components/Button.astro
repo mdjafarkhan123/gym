@@ -4,11 +4,13 @@ const { link = "#", text, type = "primary", className = "" } = Astro.props;
 
 <a
     href={link}
-    class={`btn btn--${type} ${className}`}
+    class={`btn btn--${type} ${className} magnetic-button`}
     role="button"
     aria-label={text}
+    data-strength="1.5"
+    data-strength-text=".7"
 >
-    <span class="btn__text">{text}</span>
+    <span class="btn__text text">{text}</span>
     <span class="btn__icon" aria-hidden="true">
         <svg
             width="24"
@@ -22,4 +24,5 @@ const { link = "#", text, type = "primary", className = "" } = Astro.props;
             ></path>
         </svg>
     </span>
+    <span class="btn__bg"></span>
 </a>

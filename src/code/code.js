@@ -1,19 +1,22 @@
 import Lenis from "lenis";
 import { gsap } from "gsap";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
-    const lenis = new Lenis({
-        wheelMultiplier: 2,
-        smoothWheel: true,
-    });
-    function raf(time) {
-        lenis.raf(time);
+    function smoothScroll() {
+        const lenis = new Lenis({
+            wheelMultiplier: 2,
+            smoothWheel: true,
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
     function mobileMenu() {
         const breakpoint = 992;
         if (window.innerWidth >= breakpoint) {
@@ -57,6 +60,231 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    function buttonEffect() {
+        const buttons = document.querySelectorAll(".btn");
+        buttons.forEach((button) => {
+            const bg = button.querySelector(".btn__bg");
+
+            //========= BG follow mouse effect
+            const handleOrigin = (e) => {
+                const rect = button.getBoundingClientRect();
+                bg.style.left = `${e.clientX - rect.left}px`;
+                bg.style.top = `${e.clientY - rect.top}px`;
+            };
+
+            button.addEventListener("mouseenter", (e) => {
+                handleOrigin(e);
+            });
+
+            button.addEventListener("mouseleave", (e) => {
+                handleOrigin(e);
+            });
+        });
+    }
+
+    const serviceSwiper = new Swiper(".mySwiper", {
+        modules: [Navigation],
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+            nextEl: ".services__right-button",
+            prevEl: ".services__left-button",
+        },
+
+        spaceBetween: 20,
+        breakpoints: {
+            0: {
+                enabled: false, // disables swiper on small screens
+            },
+            768: {
+                enabled: true, // enables swiper from tablet breakpoint
+            },
+        },
+    });
+
+    const testimonialSwiper = new Swiper(".swiper-testimonials", {
+        modules: [Navigation],
+        autoHeight: true,
+        loop: true,
+        navigation: {
+            nextEl: ".testimonials .testimonials__right-button",
+            prevEl: ".testimonials .testimonials__left-button",
+        },
+
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+
+            992: {
+                autoHeight: false,
+                slidesPerView: 1,
+            },
+        },
+
+        spaceBetween: 20,
+    });
+
+    function popUp() {
+        const openPopupBtn = document.getElementById("video-popup-btn");
+        const closePopupBtn = document.getElementById("close-video-popup-btn");
+        const popupOverlay = document.getElementById("video-popup-overlay");
+        const popupContent = document.getElementById("video-popup-content");
+        const videoPlayer = document.getElementById("video-player"); // The iframe
+
+        let player; // Will hold the YouTube Player object
+        let focusedElementBeforeModal;
+
+        // Initialize YouTube Player API if it's not already loaded
+        // This function is called by the YouTube IFrame Player API
+        window.onYouTubeIframeAPIReady = () => {
+            player = new YT.Player("video-player", {
+                events: {
+                    // No specific events needed for this simple pause/play,
+                    // but you could add onReady, onStateChange here if needed.
+                },
+            });
+        };
+
+        // Load the YouTube IFrame Player API asynchronously
+        function loadYouTubeAPI() {
+            if (typeof YT == "undefined" || typeof YT.Player == "undefined") {
+                const tag = document.createElement("script");
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag =
+                    document.getElementsByTagName("script")[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            } else {
+                // API already loaded, just create the player
+                if (!player) {
+                    // Ensure player is only created once
+                    player = new YT.Player("video-player", {
+                        events: {},
+                    });
+                }
+            }
+        }
+        loadYouTubeAPI(); // Call on DOMContentLoaded
+
+        // Get all focusable elements inside the modal
+        function getFocusableElements(container) {
+            return Array.from(
+                container.querySelectorAll(
+                    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                )
+            ).filter(
+                (el) =>
+                    el.offsetWidth > 0 ||
+                    el.offsetHeight > 0 ||
+                    el === document.activeElement
+            );
+        }
+
+        // Function to open the popup
+        function openPopup() {
+            focusedElementBeforeModal = document.activeElement;
+
+            popupOverlay?.setAttribute("aria-hidden", "false");
+            openPopupBtn?.setAttribute("aria-expanded", "true");
+
+            popupOverlay?.addEventListener(
+                "transitionend",
+                function handler() {
+                    const focusableElements =
+                        getFocusableElements(popupContent);
+                    if (focusableElements.length > 0) {
+                        // Prioritize focusing the video player itself if it's the first focusable
+                        focusableElements[0].focus();
+                    } else {
+                        popupContent?.focus(); // Fallback
+                    }
+                    popupOverlay?.removeEventListener("transitionend", handler);
+                },
+                { once: true }
+            );
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            popupOverlay?.setAttribute("aria-hidden", "true");
+            openPopupBtn?.setAttribute("aria-expanded", "false");
+
+            // Pause the YouTube video if the player exists
+            if (player && typeof player.pauseVideo === "function") {
+                player.pauseVideo();
+            }
+
+            popupOverlay?.addEventListener(
+                "transitionend",
+                function handler() {
+                    if (focusedElementBeforeModal) {
+                        focusedElementBeforeModal.focus();
+                    }
+                    popupOverlay?.removeEventListener("transitionend", handler);
+                },
+                { once: true }
+            );
+        }
+
+        // Event Listeners
+        openPopupBtn?.addEventListener("click", openPopup);
+        closePopupBtn?.addEventListener("click", closePopup);
+
+        // Close on overlay click
+        popupOverlay?.addEventListener("click", (event) => {
+            if (event.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        // Close on Escape key press
+        document.addEventListener("keydown", (event) => {
+            if (
+                event.key === "Escape" &&
+                popupOverlay?.getAttribute("aria-hidden") === "false"
+            ) {
+                closePopup();
+            }
+        });
+
+        // Trap focus inside the modal
+        document.addEventListener("keydown", (event) => {
+            if (
+                popupOverlay?.getAttribute("aria-hidden") === "false" &&
+                event.key === "Tab"
+            ) {
+                const focusableElements = getFocusableElements(popupContent);
+                if (focusableElements.length === 0) {
+                    event.preventDefault();
+                    return;
+                }
+
+                const firstFocusable = focusableElements[0];
+                const lastFocusable =
+                    focusableElements[focusableElements.length - 1];
+
+                if (event.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstFocusable) {
+                        lastFocusable.focus();
+                        event.preventDefault();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastFocusable) {
+                        firstFocusable.focus();
+                        event.preventDefault();
+                    }
+                }
+            }
+        });
+
+        // Ensure the popup content itself can be focused if no other elements
+        popupContent?.setAttribute("tabindex", "-1");
+    }
+
+    popUp();
 
     function rollingText() {
         let direction = 1; // 1 = forward, -1 = backward scroll
@@ -139,6 +367,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    buttonEffect();
+    smoothScroll();
     rollingText();
     faq();
     mobileMenu();
