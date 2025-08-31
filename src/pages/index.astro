@@ -1897,9 +1897,14 @@ const faqs = [
                 height: 6px;
                 background: linear-gradient(
                     90deg,
-                    rgba(218, 252, 0, 0.07) 0%,
-                    #143b00 100%
+                    #fff 0.48%,
+                    #dafc00 26.5%,
+                    #143b00 49.58%,
+                    #dafc00 77.96%,
+                    #fff 99.99%
                 );
+                background-size: 200% 100%;
+                animation: swipe 4s linear infinite;
             }
             &__author-image {
                 --size: 80px;
@@ -2422,6 +2427,15 @@ const faqs = [
         }
         100% {
             transform: scale(0.8) rotate(360deg);
+        }
+    }
+
+    @keyframes swipe {
+        0% {
+            background-position: 0% 0;
+        }
+        100% {
+            background-position: 200% 0;
         }
     }
 </style>
