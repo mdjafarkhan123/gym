@@ -366,6 +366,7 @@ hr {
         z-index: 3;
     }
     &__text {
+        position: inherit;
         z-index: 2;
     }
     &__bg {
@@ -378,7 +379,7 @@ hr {
         border-radius: 50%;
         transform: translate(-50%, -50%) scale(0);
         transition: transform 0.5s ease-out;
-        z-index: 1;
+        z-index: inherit;
     }
 
     &:hover &__bg {
@@ -392,7 +393,7 @@ hr {
             fill: var(--color-banner);
         }
         &:hover .btn__text {
-            color: var(--color-heading-white);
+            color: var(--color-heading-white) !important;
         }
         &:hover svg {
             fill: var(--color-primary);

@@ -82,6 +82,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function counter() {
+        const counters = document.querySelectorAll(
+            ".stats__item-number .value"
+        );
+
+        counters.forEach((counter) => {
+            const targetValue = +counter
+                .closest(".stats__item-number")
+                .getAttribute("data-number");
+
+            const countObj = { value: 0 };
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: counter.closest(".stats__item"),
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+
+            // Animate the counter
+            tl.to(countObj, {
+                value: targetValue,
+                duration: 2, // 2 seconds duration
+                ease: "power2.out",
+                onUpdate: function () {
+                    counter.textContent = Math.ceil(countObj.value);
+                },
+                onComplete: function () {
+                    counter.textContent = targetValue;
+                },
+            });
+        });
+    }
+
     const serviceSwiper = new Swiper(".mySwiper", {
         modules: [Navigation],
         slidesPerView: 1,
@@ -366,6 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    counter();
     buttonEffect();
     rollingText();
     faq();
