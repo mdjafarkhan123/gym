@@ -7,8 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin();
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const lenis = new Lenis({
         wheelMultiplier: 2,
@@ -20,8 +18,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(raf);
 
+    function preloader() {
+        let intro = document.querySelector(".intro");
+        const introBg = document.querySelector(".intro .intro__wrapper");
+        const logo = document.querySelector(".intro .logo");
+        const logoIcon = document.querySelector(".intro .logo__icon");
+        const logoText = document.querySelector(".intro .logo__text");
+        const logoBorder = document.querySelector(".intro .logo__border");
+        document.fonts.ready.then(() => {
+            let tl = gsap.timeline({
+                onComplete: () => {
+                    intro.style.display = "none";
+                    document.body.classList.remove("no-scroll");
+                    splitIntro.revert();
+                },
+            });
 
-    
+            let splitIntro = SplitText.create(logoText, {
+                type: "chars",
+            });
+
+            tl.to(logoText, {
+                autoAlpha: 1,
+            })
+                .to(logoIcon, {
+                    autoAlpha: 1,
+                    scale: 1,
+                    duration: 1,
+                })
+                .to(splitIntro.chars, {
+                    autoAlpha: 1,
+                    x: 0,
+                    stagger: 0.05,
+                })
+                .to(logoBorder, {
+                    strokeDashoffset: 0,
+                    duration: 1,
+                })
+                .to(logo, {
+                    autoAlpha: 0,
+                })
+                .to(introBg, {
+                    autoAlpha: 0,
+                    // duration: 1,
+                });
+        });
+    }
+
     function mobileMenu() {
         const breakpoint = 992;
         if (window.innerWidth >= breakpoint) {
