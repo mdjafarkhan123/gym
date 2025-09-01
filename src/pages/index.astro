@@ -195,7 +195,7 @@ const faqs = [
 ---
 
 <Layout>
-    <div class="intro">
+    <!-- <div class="intro">
         <div class="intro__wrapper">
             <div class="logo">
                 <div class="logo__wrapper">
@@ -233,7 +233,7 @@ const faqs = [
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="popup">
         <div
@@ -1611,8 +1611,8 @@ const faqs = [
         &__media {
             display: grid;
             place-items: center;
-            aspect-ratio: 1204 / 565;
-            border-radius: 30px;
+            aspect-ratio: 361 / 238;
+            border-radius: var(--round);
             background:
                 linear-gradient(
                     0deg,
@@ -2218,6 +2218,11 @@ const faqs = [
 
     //========== Responsive design ======//
     @include respond-to("mobile-xl") {
+        .about {
+            &__media {
+                aspect-ratio: 1208 / 565;
+            }
+        }
     }
     @include respond-to("tablet") {
         .ribbon {
