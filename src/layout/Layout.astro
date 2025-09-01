@@ -88,12 +88,14 @@ import Footer from "../components/Footer.astro";
         &__menu {
             position: fixed;
             display: flex;
+            font-family: "Heading", system-ui, sans-serif;
+            font-size: var(--text-xl);
+            text-transform: uppercase;
+            font-weight: 700;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 30px;
-            font-size: var(--fs-md);
-            font-weight: 500;
             inset: 0;
             background-color: var(--color-white);
             transform: translateX(100%);
@@ -245,6 +247,7 @@ import Footer from "../components/Footer.astro";
                     flex-flow: column;
                     gap: var(--space-3xsm);
                     a {
+                        color: var(--color-text-white);
                         text-decoration: none;
                     }
                 }
@@ -335,6 +338,7 @@ import Footer from "../components/Footer.astro";
                 flex-direction: row;
                 font-size: 1rem;
                 letter-spacing: 1px;
+                font-size: var(--text-base);
                 font-weight: 500;
                 text-transform: capitalize;
                 background-color: transparent;
