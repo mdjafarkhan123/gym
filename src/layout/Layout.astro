@@ -183,9 +183,13 @@ import Footer from "../components/Footer.astro";
             align-items: center;
             gap: 5px;
             &-item {
-                background-color: white;
+                background-color: var(--color-primary);
                 border-radius: 50px;
                 list-style: none;
+                transition: var(--transition);
+                &:hover {
+                    transform: rotate(180deg);
+                }
             }
             &-link {
                 display: inline-flex;
@@ -194,6 +198,7 @@ import Footer from "../components/Footer.astro";
                 line-height: 0;
                 padding: 8px;
                 svg {
+                    fill: var(--color-banner);
                     width: 20px;
                 }
             }
